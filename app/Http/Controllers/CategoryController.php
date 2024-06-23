@@ -46,4 +46,9 @@ class CategoryController extends Controller
         return redirect()->route('categories.index')->with('success', 'Category updated successfully');
     }
 
+    //destroy
+    public function destroy(Category $category){
+        $category->delete();
+        return redirect()->route('categories.index')->with('success', 'User deleted successfully');
+    }
 }
