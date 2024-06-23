@@ -16,4 +16,21 @@ class CategoryController extends Controller
         })->orderBy('id', 'desc')->paginate(10);
         return view('pages.categories.index', compact('categories'));
     }
+
+    //create
+    public function create(){
+        return view(('pages.categories.create'));
+    }
+
+    //store
+    public function store(Request $request){
+        $request->validate([
+            'name'=>'required',
+        ]);
+
+        Category::create($request->all());
+        return redirect()->route('categories.index')->with('success','User created succesfully');
+    }
+
+
 }
