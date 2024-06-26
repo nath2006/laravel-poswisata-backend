@@ -29,7 +29,7 @@
                 </div>
                 <h2 class="section-title">Users</h2>
                 <p class="section-lead">
-                    You can manage all Users, such as editing, deleting and more.
+                    You can manage all categories, including adding, editing, and deleting.
                 </p>
 
 

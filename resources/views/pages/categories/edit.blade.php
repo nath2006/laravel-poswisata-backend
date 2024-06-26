@@ -14,11 +14,18 @@
 
 @section('main')
     <div class="main-content">
+        <div class="row">
+            <div class="col-12">
+                @include('layouts.alert')
+            </div>
+        </div>
+        <h2 class="section-title">Users</h2>
+        <p class="section-lead">
+            You can manage all Users, such as editing, deleting and more.
+        </p>
         <section class="section">
-
             <div class="section-body">
                 <h2 class="section-title">Category</h2>
-
                 <div class="card">
                     <form action="{{ route('categories.update', $category) }}" method="POST">
                         @csrf

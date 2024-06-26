@@ -27,6 +27,10 @@
                         @include('layouts.alert')
                     </div>
                 </div>
+                <h2 class="section-title">Category</h2>
+                <p class="section-lead">
+                    You can manage all categories, including adding, editing, and deleting.
+                </p>
 
 
                 <div class="row mt-4">
