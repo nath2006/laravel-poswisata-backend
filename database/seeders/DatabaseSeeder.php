@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Product;
 use App\Models\User;
 use App\Models\Category;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
@@ -24,5 +25,8 @@ class DatabaseSeeder extends Seeder
 
         //category factory 2
         Category::factory(2)->create();
+
+        //product factory 10
+        Product::factory(10)->create();
     }
 }
