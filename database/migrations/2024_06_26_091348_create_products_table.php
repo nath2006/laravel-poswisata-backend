@@ -19,7 +19,7 @@ return new class extends Migration
             $table->integer('price');
             $table->integer('stock');
             $table->foreignId('category_id')->constrained('categories');
-            $table->string('image');
+            $table->string('image')->nullable();
             //status string
             $table->enum('status', ['draft', 'published', 'archived'])->default('draft');
             //criteria

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Product;
+use App\Models\Category;
 use Illuminate\Http\Request;
 
 class ProductController extends Controller
@@ -15,6 +16,59 @@ class ProductController extends Controller
                 ->orWhere('description', 'like', "%{$request->keyword}%");
         })->orderBy('id', 'desc')->paginate(10);
         return view('pages.products.index', compact('products'));
+    }
+
+//create
+    public function create()
+    {
+        $categories = Category::orderBy('name', 'ASC')->get();
+            return view('pages.products.create', compact('categories'));
+    }
+
+//store
+public function store(Request $request)
+    {
+        $request->validate([
+            'category_id' => 'required',
+            'name' => 'required',
+            'description' => 'required',
+            'price' => 'required',
+            'image' => 'required',
+            'criteria' => 'required',
+            'favorite' => 'required',
+            'status' => 'required',
+            'stock' => 'required',
+        ]);
+
+           // 'category_id',
+           // 'name',
+           // 'description',
+           // 'price',
+           // 'image',
+           // 'criteria',
+           // 'favorite',
+           // 'status',
+           // 'stock',
+
+        $product = new Product;
+        $product->category_id = $request->category_id;
+        $product->name = $request->name;
+        $product->description = $request->description;
+        $product->price = $request->price;
+
+        $product->criteria = $request->criteria;
+        $product->favorite = $request->favorite;
+        $product->status = $request->status;
+        $product->stock = $request->stock;
+        $product->save();
+
+        //image
+        $image = $request->file('image');
+        $image->storeAs('public/products', $product->id . '.' . $image->extension());
+        $product->image = 'products/' . $product->id . '.' . $image->extension();
+        $product->save();
+
+        return redirect()->route('products.index')->with('success', 'Product created successfully');
     }
 
 }
