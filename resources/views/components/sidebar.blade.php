@@ -12,17 +12,17 @@
             </li>
 
             <li class="nav-item ">
-                <a href="{{ route('users.index') }}" class="nav-link "><i class="fa-solid fa-users"></i>
+                <a href="{{ route('users.index') }}" class="nav-link "><i class="fas fa-users"></i>
                     <span>Users</span></a>
             </li>
 
             <li class="nav-item ">
-                <a href="{{ route('categories.index') }}" class="nav-link "><i class="fa-solid fa-list"></i>
+                <a href="{{ route('categories.index') }}" class="nav-link "><i class="fas fa-list"></i>
                     <span>Categories</span></a>
             </li>
 
             <li class="nav-item ">
-                <a href="{{ route('products.index') }}" class="nav-link "><i class="fa-solid fa-ticket"></i>
+                <a href="{{ route('products.index') }}" class="nav-link "><i class="fas fa-ticket"></i>
                     <span>Products</span></a>
             </li>
     </aside>
