@@ -30,7 +30,7 @@
 
 
                 <div class="card">
-                    <form action="{{ route('products.update', $product) }}" method="POST">
+                    <form action="{{ route('products.update', $product) }}" method="POST" enctype="multipart/form-data">
                         @csrf
                         @method('PUT')
                         <div class="card-header">
@@ -135,14 +135,14 @@
                                 <label class="form-label w-100">Criteria</label>
                                 <div class="selectgroup selectgroup-pills">
                                     <label class="selectgroup-item">
-                                        <input type="radio" name="criteria" value="perorangan" class="selectgroup-input"
-                                            {{ $product->criteria == 'perorangan' ? 'checked' : '' }}>
-                                        <span class="selectgroup-button">Perorangan</span>
+                                        <input type="radio" name="criteria" value="individual" class="selectgroup-input"
+                                            {{ $product->criteria == 'individual' ? 'checked' : '' }}>
+                                        <span class="selectgroup-button">Individual</span>
                                     </label>
                                     <label class="selectgroup-item">
-                                        <input type="radio" name="criteria" value="rombongan" class="selectgroup-input"
-                                            {{ $product->criteria == 'rombongan' ? 'checked' : '' }}>
-                                        <span class="selectgroup-button">Rombongan</span>
+                                        <input type="radio" name="criteria" value="group" class="selectgroup-input"
+                                            {{ $product->criteria == 'group' ? 'checked' : '' }}>
+                                        <span class="selectgroup-button">Group</span>
                                     </label>
                                 </div>
                             </div>

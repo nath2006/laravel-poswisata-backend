@@ -94,12 +94,13 @@ public function store(Request $request)
         $product->save();
 
         //check if image is not empty
-        if ($request->image) {
-            $image = $request->file('image');
+        $image = $request->file('image');
+        if ($image) {
             $image->storeAs('public/products', $product->id . '.' . $image->extension());
             $product->image = 'products/' . $product->id . '.' . $image->extension();
             $product->save();
         }
+
         return redirect()->route('products.index')->with('success', 'Product updated successfully');
     }
 
