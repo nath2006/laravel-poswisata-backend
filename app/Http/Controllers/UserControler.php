@@ -76,4 +76,11 @@ class UserControler extends Controller
         $user->delete();
         return redirect()->route('users.index')->with('success', 'User deleted successfully');
     }
+
+    //count admin
+    public function getAdminCount()
+    {
+        $adminCount = User::where('role', 'admin')->count();
+        return $adminCount;
+    }
 }
